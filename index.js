@@ -159,8 +159,11 @@ const convertBanglaToEnglishNumber=(str)=>{
     
 }
 
+const startDate = '2013-01-01'
+const endDate = '2013-01-05'
 
-scraper('2013-01-01','2013-01-03')
+
+scraper(startDate,endDate)
 
 // console.log(convertBanglaToEnglishNumber('১১'));
 
