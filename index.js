@@ -9,7 +9,7 @@ const output = (data,date) => {
 
     data.map((value,index) => {
         if(value[0].includes('পেঁয়াজ - দেশী')){
-            processedData.push([date, value[1]].join(','))
+            processedData.push([date, convertBanglaToEnglishNumber(value[1])].join(','))
         }
     })
     
@@ -134,6 +134,34 @@ writer(startDate,endDate)
 }
 
 
+const convertBanglaToEnglishNumber=(str)=>{
+
+    if(!str) return;
+
+        const numbers = {
+            "\u09E6" : 0,
+            "\u09E7" : 1,
+            "\u09E8" : 2,
+            "\u09E9" : 3,
+            "\u09EA" : 4,
+            "\u09EB" : 5,
+            "\u09EC" : 6,
+            "\u09ED" : 7,
+            "\u09EE" : 8,
+            "\u09EF" : 9
+        }
+
+       
+        for (var x in numbers) {
+            str = str.replace(new RegExp(x, 'g'), numbers[x]);
+        }
+        return str;
+    
+}
+
+
 scraper('2013-01-01','2013-01-03')
+
+// console.log(convertBanglaToEnglishNumber('১১'));
 
 // console.log(output)
